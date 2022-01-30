@@ -12,18 +12,26 @@ import {
 import UploadPhoto from '../../components/inventory/UploadPhoto';
 import {DropDown, InputField} from '../../components/Inputs';
 import {COLORS, FONTFAMILY, FONTS} from '../../constants/theme';
+import AddItemTop from '../../components/inventory/AddItemTop';
 
 const AddItem = ({navigation}) => {
-  const [photoUrl, setPhotoUrl] = React.useState(
-    'https://i.ibb.co/4dfndL2/louis-hansel-M-d-J-Scwa-LE-unsplash.jpg',
-  );
-  const [category, setCategory] = React.useState(null);
-  const [categories, setItems] = React.useState([
+  const [photoUrl, setPhotoUrl] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [category, setCategory] = React.useState('');
+  const [purchasePrice, setPurchasePrice] = React.useState('');
+  const [description, setDescription] = React.useState('');
+  const [disabled, setDisabled] = React.useState(false);
+
+  const [categories] = React.useState([
     {label: 'Art', value: 'Art'},
     {label: 'Electronics', value: 'Electronics'},
     {label: 'Jewelry', value: 'Jewelry'},
     {label: 'Musical instruments', value: 'Musical instruments'},
   ]);
+  const canSubmit = () => {
+    // if(name && category && photoUrl && purchasePrice) {
+    // }
+  };
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -33,15 +41,8 @@ const AddItem = ({navigation}) => {
       <ScrollView
         contentContainerStyle={styles.container}
         keyboardShouldPersistTaps={'handled'}>
-        <View style={styles.actionButtons} overScrollMode>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.actionButtonText}>Cancel</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.actionButtonText}>Add</Text>
-          </TouchableOpacity>
-        </View>
-        <UploadPhoto photoUrl={photoUrl} />
+        <AddItemTop mainButtonText="Add" mainButtonDisabled={true} />
+        <UploadPhoto photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} />
         <View style={{height: 30}} />
         <InputField label="Name" placeholder="Bracelet" />
         <DropDown
@@ -73,15 +74,5 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     padding: 16,
     backgroundColor: COLORS.gray_50,
-  },
-  actionButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-  actionButtonText: {
-    ...FONTS.body_14,
-    color: COLORS.blue,
-    fontFamily: FONTFAMILY[600],
   },
 });

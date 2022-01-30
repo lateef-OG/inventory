@@ -11,6 +11,7 @@ export const InputField = ({
   rightAccessory,
   inputStyle,
   multiline,
+  onChange,
 }) => {
   const [isFocused, setIsFocused] = React.useState(false);
   return (
@@ -37,6 +38,7 @@ export const InputField = ({
           keyboardType={type}
           multiline={multiline}
           numberOfLines={multiline ? 5 : 1}
+          onChangeText={onChange}
         />
         {rightAccessory}
       </View>
