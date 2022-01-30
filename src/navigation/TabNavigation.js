@@ -2,22 +2,22 @@ import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Inventory from '../screens/inventory/Inventory';
 import {COLORS} from '../constants/theme';
+import {InventoryNavigator} from './InventoryNavigation';
 
 const TabNavigator = createBottomTabNavigator();
 
 const TabNavigation = () => {
   return (
     <TabNavigator.Navigator
-      initialRouteName="Inventory"
+      initialRouteName="InventoryStack"
       screenOptions={{
         tabBarActiveTintColor: COLORS.blue,
         tabBarInactiveTintColor: COLORS.gray,
         headerShown: false,
       }}>
       <TabNavigator.Screen
-        name="Home"
+        name="HomeStack"
         component={() => <Text>Home</Text>}
         options={() => ({
           title: 'Home',
@@ -32,7 +32,7 @@ const TabNavigation = () => {
         })}
       />
       <TabNavigator.Screen
-        name="Listings"
+        name="ListingsStack"
         component={() => <Text>Listings</Text>}
         options={() => ({
           title: 'Listings',
@@ -47,8 +47,8 @@ const TabNavigation = () => {
         })}
       />
       <TabNavigator.Screen
-        name="Inventory"
-        component={Inventory}
+        name="InventoryStack"
+        component={InventoryNavigator}
         options={() => ({
           title: 'Inventory',
           tabBarLabelStyle: style.tab,
@@ -62,7 +62,7 @@ const TabNavigation = () => {
         })}
       />
       <TabNavigator.Screen
-        name="Explore"
+        name="ExploreStack"
         component={() => <Text>Explore</Text>}
         options={() => ({
           title: 'Explore',
@@ -77,7 +77,7 @@ const TabNavigation = () => {
         })}
       />
       <TabNavigator.Screen
-        name="Menu"
+        name="MenuStack"
         component={() => <Text>Menu</Text>}
         options={() => ({
           title: 'Menu',

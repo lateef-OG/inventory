@@ -7,7 +7,7 @@ import PageTitle from '../../components/inventory/PageTitle';
 import ItemCard from '../../components/inventory/ItemCard';
 import {inventoryData} from '../../utils/data';
 
-const Inventory = () => {
+const Inventory = ({navigation}) => {
   const [data, setdata] = React.useState(inventoryData);
   return (
     <FlatList
@@ -17,7 +17,9 @@ const Inventory = () => {
         <PageTitle
           title="Inventory"
           rightAccessory={
-            <TouchableOpacity style={styles.circleButton}>
+            <TouchableOpacity
+              style={styles.circleButton}
+              onPress={() => navigation.navigate('AddItem')}>
               <Icon name="plus" size={16} color={COLORS.white} />
             </TouchableOpacity>
           }

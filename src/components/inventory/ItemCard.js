@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import {FONTS, COLORS, FONTFAMILY} from '../../constants/theme';
 
 const ItemCard = ({data}) => {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   name: {
     ...FONTS.heading,
     color: COLORS.black,
-    fontWeight: FONTFAMILY[600],
+    fontFamily: FONTFAMILY[600],
     marginBottom: 6,
     flex: 1,
   },

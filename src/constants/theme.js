@@ -3,7 +3,8 @@ export const COLORS = {
   black: '#2C2738',
   gray: '#756F86',
   white: '#FFFFFF',
-  gray_50: '#F9F9F9',
+  gray_50: '#F0F0F5',
+  error: '#FF7171',
 };
 
 export const SIZES = {
