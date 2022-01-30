@@ -15,3 +15,10 @@ export const inventoryData = [
     photo: 'https://i.ibb.co/4dfndL2/louis-hansel-M-d-J-Scwa-LE-unsplash.jpg',
   },
 ];
+
+export const categories = [
+  {label: 'Art', value: 'Art'},
+  {label: 'Electronics', value: 'Electronics'},
+  {label: 'Jewelry', value: 'Jewelry'},
+  {label: 'Musical instruments', value: 'Musical instruments'},
+];

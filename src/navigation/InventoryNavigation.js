@@ -31,7 +31,6 @@ export const InventoryNavigator = ({navigation, route}) => {
           ...TransitionPresets.ModalPresentationIOS,
         }}
       />
-      {/* <InventoryStack.Screen name="Notifications" component={Notifications} /> */}
     </InventoryStack.Navigator>
   );
 };

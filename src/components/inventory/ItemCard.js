@@ -22,7 +22,7 @@ export default ItemCard;
 const styles = StyleSheet.create({
   cardContainer: {
     padding: 8,
-    flex: 1,
+    width: '50%',
   },
   card: {
     elevation: 10,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   name: {
     ...FONTS.heading,
     color: COLORS.black,
-    fontFamily: FONTFAMILY[600],
+    fontFamily: FONTFAMILY[500],
     marginBottom: 6,
     flex: 1,
   },

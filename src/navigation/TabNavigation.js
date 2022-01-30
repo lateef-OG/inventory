@@ -1,9 +1,10 @@
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {COLORS} from '../constants/theme';
+import {COLORS, FONTS} from '../constants/theme';
 import {InventoryNavigator} from './InventoryNavigation';
+import DummyScreen from '../screens/DummyScreen';
 
 const TabNavigator = createBottomTabNavigator();
 
@@ -18,10 +19,10 @@ const TabNavigation = () => {
       }}>
       <TabNavigator.Screen
         name="HomeStack"
-        component={() => <Text>Home</Text>}
+        component={DummyScreen}
         options={() => ({
           title: 'Home',
-          tabBarLabelStyle: style.tab,
+          tabBarLabelStyle: styles.tab,
           tabBarIcon: ({focused, size}) => (
             <Icon
               name="home"
@@ -33,10 +34,10 @@ const TabNavigation = () => {
       />
       <TabNavigator.Screen
         name="ListingsStack"
-        component={() => <Text>Listings</Text>}
+        component={DummyScreen}
         options={() => ({
           title: 'Listings',
-          tabBarLabelStyle: style.tab,
+          tabBarLabelStyle: styles.tab,
           tabBarIcon: ({focused, size}) => (
             <Icon
               name="umbrella"
@@ -51,7 +52,7 @@ const TabNavigation = () => {
         component={InventoryNavigator}
         options={() => ({
           title: 'Inventory',
-          tabBarLabelStyle: style.tab,
+          tabBarLabelStyle: styles.tab,
           tabBarIcon: ({focused, size}) => (
             <Icon
               name="folder"
@@ -63,10 +64,10 @@ const TabNavigation = () => {
       />
       <TabNavigator.Screen
         name="ExploreStack"
-        component={() => <Text>Explore</Text>}
+        component={DummyScreen}
         options={() => ({
           title: 'Explore',
-          tabBarLabelStyle: style.tab,
+          tabBarLabelStyle: styles.tab,
           tabBarIcon: ({focused, size}) => (
             <Icon
               name="search"
@@ -78,10 +79,10 @@ const TabNavigation = () => {
       />
       <TabNavigator.Screen
         name="MenuStack"
-        component={() => <Text>Menu</Text>}
+        component={DummyScreen}
         options={() => ({
           title: 'Menu',
-          tabBarLabelStyle: style.tab,
+          tabBarLabelStyle: styles.tab,
           tabBarIcon: ({focused, size}) => (
             <Icon
               name="bars"
@@ -97,8 +98,9 @@ const TabNavigation = () => {
 
 export default TabNavigation;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   tab: {
+    ...FONTS.body_14,
     fontSize: 12,
   },
 });

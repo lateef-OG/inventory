@@ -12,6 +12,7 @@ export const InputField = ({
   inputStyle,
   multiline,
   onChange,
+  error,
 }) => {
   const [isFocused, setIsFocused] = React.useState(false);
   return (
@@ -21,6 +22,7 @@ export const InputField = ({
         style={[
           styles.inputContainer,
           isFocused && styles.inputFocused,
+          error && styles.error,
           {height: multiline ? 'auto' : 55},
         ]}>
         <TextInput
@@ -42,6 +44,7 @@ export const InputField = ({
         />
         {rightAccessory}
       </View>
+      {Boolean(error) && <Text style={styles.errorText}>{error}</Text>}
     </View>
   );
 };
@@ -52,6 +55,7 @@ export const DropDown = ({
   items,
   category,
   setCategory,
+  onChange,
 }) => {
   const [open, setOpen] = React.useState(false);
   const [isFocused, setIsFocused] = React.useState(false);
@@ -63,12 +67,12 @@ export const DropDown = ({
         value={category}
         items={items}
         setOpen={setOpen}
-        onChangeValue={value => console.log(value)}
+        onChangeValue={value => onChange(value)}
         onSelectItem={item => {
           setCategory(item);
         }}
-        // setItems={setItems}
         style={[styles.inputContainer, isFocused && styles.inputFocused]}
+        textStyle={styles.dropdownText}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
@@ -109,5 +113,15 @@ const styles = StyleSheet.create({
   },
   error: {
     borderColor: COLORS.error,
+  },
+  errorText: {
+    color: COLORS.error,
+    ...FONTS.body_14,
+    fontSize: 10,
+    marginTop: 5,
+  },
+  dropdownText: {
+    color: COLORS.gray,
+    ...FONTS.body_16,
   },
 });

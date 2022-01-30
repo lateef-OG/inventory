@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import {useCamera} from 'react-native-camera-hooks';
-// import RNFS from 'react-native-fs';
 import {COLORS, FONTS} from '../constants/theme';
 
 const Camera = ({cancel, setPhotoUrl}) => {
@@ -25,12 +24,6 @@ const Camera = ({cancel, setPhotoUrl}) => {
       setLoading(false);
       setPhotoUrl(filePath);
       cancel();
-      // const newFilePath = RNFS.ExternalDirectoryPath + 'inventory_photo.jpg';
-      // RNFS.moveFile(filePath, newFilePath);
-      // .then(() => {
-      //   setPhotoUrl(newFilePath);
-
-      // })
     } catch (error) {
       console.log(error);
       setLoading(false);

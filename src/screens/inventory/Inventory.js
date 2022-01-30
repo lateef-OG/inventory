@@ -1,18 +1,18 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
+import {useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {FlatList} from 'react-native-gesture-handler';
 import {COLORS} from '../../constants/theme';
 import PageTitle from '../../components/inventory/PageTitle';
 import ItemCard from '../../components/inventory/ItemCard';
-import {inventoryData} from '../../utils/data';
 
 const Inventory = ({navigation}) => {
-  const [data, setdata] = React.useState(inventoryData);
+  const {items} = useSelector(state => state.inventory);
   return (
     <FlatList
       contentContainerStyle={styles.mainContainer}
-      data={data}
+      data={items}
       ListHeaderComponent={() => (
         <PageTitle
           title="Inventory"
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.gray_50,
     paddingHorizontal: 8,
     paddingVertical: 24,
-    flex: 1,
+    flexGrow: 1,
   },
   circleButton: {
     height: 30,
