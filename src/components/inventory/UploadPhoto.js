@@ -12,16 +12,18 @@ const UploadPhoto = ({photoUrl, setPhotoUrl}) => {
     <View style={styles.photoContainer}>
       {photoUrl ? (
         <View>
-          <Image
-            source={{uri: photoUrl}}
-            style={[styles.photoView, {borderWidth: 0}]}
-          />
+          <Image source={{uri: photoUrl}} style={styles.photoView} />
           <Pressable style={styles.removePhoto} onPress={() => setPhotoUrl('')}>
             <Icon name="trash" size={14} color={COLORS.white} />
           </Pressable>
         </View>
       ) : (
-        <Pressable style={styles.photoView} onPress={onOpen}>
+        <Pressable
+          style={[
+            styles.photoView,
+            {borderWidth: 1, borderStyle: 'dashed', borderColor: '#E0E0E0'},
+          ]}
+          onPress={onOpen}>
           <Icon name="camera" size={40} color={COLORS.blue} />
           <Text style={styles.photoText}>Add Photo</Text>
         </Pressable>
@@ -43,9 +45,6 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 120 / 2,
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    borderColor: '#E0E0E0',
     alignItems: 'center',
     justifyContent: 'center',
   },
