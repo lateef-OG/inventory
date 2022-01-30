@@ -38,17 +38,14 @@ const AddItem = ({navigation}) => {
       };
       const totalValue = getTotalValue() + Number(purchasePrice);
       if (Number(purchasePrice) && totalValue > 40000) {
-        console.log('1');
         setDisabled(true);
         setValueError(
           `You have exceeded the total value limit by ${totalValue - 40000}`,
         );
       } else if (name && category && photo && purchasePrice) {
-        console.log('2');
         setDisabled(false);
         setValueError('');
       } else {
-        console.log('3');
         setDisabled(true);
         setValueError('');
       }

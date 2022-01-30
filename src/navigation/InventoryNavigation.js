@@ -24,7 +24,7 @@ export const InventoryNavigator = ({navigation, route}) => {
       <InventoryStack.Screen
         name="AddItem"
         component={AddItem}
-        screenOptions={{
+        options={{
           presentation: 'modal',
           gestureEnabled: true,
           cardOverlayEnabled: true,

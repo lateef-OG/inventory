@@ -6,12 +6,17 @@ import {FlatList} from 'react-native-gesture-handler';
 import {COLORS} from '../../constants/theme';
 import PageTitle from '../../components/inventory/PageTitle';
 import ItemCard from '../../components/inventory/ItemCard';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const Inventory = ({navigation}) => {
   const {items} = useSelector(state => state.inventory);
+  const insets = useSafeAreaInsets();
   return (
     <FlatList
-      contentContainerStyle={styles.mainContainer}
+      contentContainerStyle={[
+        styles.mainContainer,
+        {paddingTop: insets.top + 24},
+      ]}
       data={items}
       ListHeaderComponent={() => (
         <PageTitle

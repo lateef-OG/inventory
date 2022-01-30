@@ -10,9 +10,11 @@ import {
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import {useCamera} from 'react-native-camera-hooks';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {COLORS, FONTS} from '../constants/theme';
 
 const Camera = ({cancel, setPhotoUrl}) => {
+  const insets = useSafeAreaInsets();
   const [{cameraRef}, {takePicture}] = useCamera(null);
   const [loading, setLoading] = React.useState(false);
 
@@ -30,7 +32,7 @@ const Camera = ({cancel, setPhotoUrl}) => {
     }
   };
   return (
-    <View style={styles.cameraContainer}>
+    <View style={[styles.cameraContainer, {paddingBottom: insets.bottom}]}>
       <RNCamera
         ref={cameraRef}
         type={RNCamera.Constants.Type.back}

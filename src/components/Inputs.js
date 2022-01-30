@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Platform} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {COLORS, FONTFAMILY, FONTS} from '../constants/theme';
 
@@ -15,6 +15,7 @@ export const InputField = ({
   error,
 }) => {
   const [isFocused, setIsFocused] = React.useState(false);
+  const isiOS = Platform.OS === 'ios';
   return (
     <View style={[styles.inputWrapper, {...inputStyle}]}>
       <Text style={styles.inputLabel}>{label}</Text>
@@ -31,6 +32,7 @@ export const InputField = ({
             styles.input,
             {
               textAlignVertical: multiline ? 'top' : 'center',
+              height: isiOS ? 150 : 'auto',
             },
           ]}
           placeholderTextColor={COLORS.gray_3}
